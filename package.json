@@ -1,0 +1,9 @@
+{
+  "name": "ws-estetica-duas-rodas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site + painel da WS Estética Duas Rodas, com banco de dados no Upstash.",
+  "dependencies": {
+    "@upstash/redis": "latest"
+  }
+}
