@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WS Estética Duas Rodas — Detalhamento de Motos em Juiz de Fora</title>
+<title>WS Estética Duas Rodas — Detalhamento de Motos e Carros em Juiz de Fora</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
 
@@ -449,10 +449,10 @@ tr:last-child td{border-bottom:none;}
             <div class="service-price">R$ 50<small>,00</small></div>
             <ul class="service-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Esfregação básica sobre a moto por completo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Secagem e encerramento — durabilidade de 1 a 2 meses</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Secagem e enceramento — durabilidade de 1 a 2 meses</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Revitalização das partes superiores da moto</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Pretinho para acabamento impecável</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Busca e leva da moto (+R$10,00)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
             </ul>
             <button class="btn btn-ghost" onclick="goOrderWithPreset('basica')">Orçar limpeza básica</button>
           </div>
@@ -475,6 +475,7 @@ tr:last-child td{border-bottom:none;}
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Cera protetora na pintura</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Revitalização de plásticos com proteção UV</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Verniz antioxidante em motor, rodas e quadro</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
             </ul>
             <button class="btn btn-primary" onclick="goOrderWithPreset('artesanal_p')">Orçar limpeza artesanal</button>
           </div>
@@ -488,6 +489,7 @@ tr:last-child td{border-bottom:none;}
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Carro pequeno ou médio — R$ 50,00</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Carro grande — R$ 70,00</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Lavagem externa e limpeza interna básica</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
             </ul>
             <button class="btn btn-ghost" onclick="goOrderWithPreset('carro_pm')">Orçar limpeza de carro</button>
           </div>
@@ -505,8 +507,8 @@ tr:last-child td{border-bottom:none;}
       <div class="process">
         <div class="step"><div class="step-num">01</div><h4>Monte o orçamento</h4><p>Escolha os serviços online e veja o total na hora.</p></div>
         <div class="step"><div class="step-num">02</div><h4>Acompanhe o status</h4><p>Veja quando foi confirmado e entrou em andamento.</p></div>
-        <div class="step"><div class="step-num">03</div><h4>Leve ou peça busca</h4><p>Buscamos e levamos sua moto com segurança, se preferir.</p></div>
-        <div class="step"><div class="step-num">04</div><h4>Retire pronta</h4><p>Moto limpa, protegida e com cara de nova.</p></div>
+        <div class="step"><div class="step-num">03</div><h4>Leve ou peça busca</h4><p>Buscamos e entregamos seu veículo com segurança, se preferir.</p></div>
+        <div class="step"><div class="step-num">04</div><h4>Retire pronto</h4><p>Seu veículo limpo, protegido e com cara de novo.</p></div>
       </div>
     </section>
 
@@ -678,7 +680,7 @@ async function dbDelete(key){
 /* ================= constantes ================= */
 const CATALOG = [
   {id:'basica', name:'Limpeza Básica (moto)', price:50},
-  {id:'buscaleva', name:'Busca e leva (adicional)', price:10},
+  {id:'buscaleva', name:'Buscamos e entregamos seu veículo (adicional)', price:10},
   {id:'artesanal_p', name:'Limpeza Artesanal — Pequena/Média', price:130},
   {id:'artesanal_m', name:'Limpeza Artesanal — Sujidade média/alta', price:190},
   {id:'artesanal_g', name:'Limpeza Artesanal — Grande/Premium', price:250},
@@ -690,8 +692,8 @@ const TEAM_CONTACTS = [
   {nome:'Murillo', numero:'5532991193006'},
   {nome:'Thiago', numero:'5532984244379'},
 ];
-const STATUS_FLOW = ['Pendente','Confirmado','Em andamento','Concluído','Cancelado'];
-const STATUS_CLASS = {'Pendente':'pendente','Confirmado':'confirmado','Em andamento':'andamento','Concluído':'concluido','Cancelado':'cancelado'};
+const STATUS_FLOW = ['Em análise','Marcado','Em andamento','Concluído','Cancelado'];
+const STATUS_CLASS = {'Em análise':'pendente','Marcado':'confirmado','Em andamento':'andamento','Concluído':'concluido','Cancelado':'cancelado'};
 const PRODUCT_UNITS = ['un','ml','L','kg','pacote'];
 
 /* Login da equipe agora é verificado no servidor (api/admin-login.js) — as senhas
@@ -874,7 +876,7 @@ async function submitOrder(){
   if(selected.length===0){ errEl.textContent='Escolha ao menos um serviço.'; errEl.classList.add('show'); return; }
   const notes = document.getElementById('orderNotes').value.trim();
   const total = selected.reduce((s,i)=>s+i.price,0);
-  const order = { id:uid(), clientPhone:state.session.phone, clientName:state.session.nome, items:selected.map(i=>({name:i.name, price:i.price})), total, notes, status:'Pendente', createdAt:new Date().toISOString() };
+  const order = { id:uid(), clientPhone:state.session.phone, clientName:state.session.nome, items:selected.map(i=>({name:i.name, price:i.price})), total, notes, status:'Em análise', createdAt:new Date().toISOString() };
   await dbSet('order:'+order.id, order);
   state.orderSelection = {};
   state.clientTab='meus';
@@ -892,6 +894,7 @@ async function renderMyOrders(body){
         <span class="badge ${STATUS_CLASS[o.status]}">${o.status}</span>
       </div>
       <div class="list-row-items">${o.items.map(i=>i.name).join(', ')}</div>
+      ${o.status==='Marcado' && o.scheduledAt ? `<div class="list-row-sub" style="margin-bottom:10px;">Agendado para ${fmtDate(o.scheduledAt)}</div>` : ''}
       <div class="list-row-bottom"><span class="total-tag">${fmtMoney(o.total)}</span></div>
     </div>
   `).join('');
@@ -985,9 +988,35 @@ async function renderAtendimentos(body){
           ${STATUS_FLOW.map(s=>`<option value="${s}" ${s===o.status?'selected':''}>${s}</option>`).join('')}
         </select>
       </div>
+      ${o.status==='Marcado' ? scheduleBlock(o) : ''}
     </div>
   `).join('');
   body.innerHTML = html;
+}
+function scheduleBlock(o){
+  return `
+    <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--line-soft);">
+      <div class="list-row-sub" style="margin-bottom:10px;">${o.scheduledAt ? 'Agendado para '+fmtDate(o.scheduledAt) : 'Ainda sem data marcada'}</div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0;"><label>Data</label><input type="date" id="schedDate_${o.id}" value="${o.scheduledAt ? o.scheduledAt.slice(0,10) : ''}"></div>
+        <div class="field" style="margin-bottom:0;"><label>Horário</label><input type="time" id="schedTime_${o.id}" value="${o.scheduledAt ? o.scheduledAt.slice(11,16) : ''}"></div>
+      </div>
+      <div class="err-msg" id="schedErr_${o.id}"></div>
+      <button class="btn btn-ghost btn-sm" style="margin-top:10px;" onclick="saveSchedule('${o.id}')">${o.scheduledAt ? 'Editar horário' : 'Salvar horário'}</button>
+    </div>
+  `;
+}
+async function saveSchedule(orderId){
+  const dateVal = document.getElementById('schedDate_'+orderId).value;
+  const timeVal = document.getElementById('schedTime_'+orderId).value;
+  const errEl = document.getElementById('schedErr_'+orderId);
+  errEl.classList.remove('show');
+  if(!dateVal || !timeVal){ errEl.textContent='Escolha a data e o horário.'; errEl.classList.add('show'); return; }
+  const order = await dbGet('order:'+orderId);
+  if(!order) return;
+  order.scheduledAt = dateVal+'T'+timeVal;
+  await dbSet('order:'+orderId, order);
+  renderAdminBody();
 }
 async function claimOrder(orderId){
   const order = await dbGet('order:'+orderId);
