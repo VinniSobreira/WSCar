@@ -447,9 +447,10 @@ tr:last-child td{border-bottom:none;}
             <div class="service-name">Limpeza Básica</div>
             <div class="service-desc">Sua moto limpa, protegida e com acabamento impecável — ideal pra manter em dia.</div>
             <div class="service-price">R$ 50<small>,00</small></div>
+            <div class="service-note">enceramento como adicional: +R$10,00</div>
             <ul class="service-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Esfregação básica sobre a moto por completo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Secagem e enceramento — durabilidade de 1 a 2 meses</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Secagem — durabilidade de 1 a 2 meses</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Revitalização das partes superiores da moto</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Pretinho para acabamento impecável</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
@@ -461,7 +462,7 @@ tr:last-child td{border-bottom:none;}
             <span class="service-badge">Mais pedido</span>
             <div class="service-name">Limpeza Artesanal Padrão</div>
             <div class="service-desc">Limpeza completa e detalhada, com produtos adequados e técnicas que protegem e valorizam cada detalhe.</div>
-            <div class="service-price">R$ 130<small>–250,00</small></div>
+            <div class="service-price"><span style="display:block; font-family:var(--body); font-size:13px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">A partir de</span>R$ 130<small>,00</small></div>
             <div class="service-note">variação conforme modelo e grau de sujidade</div>
             <div class="service-meta">
               <span class="meta-chip">Tempo + cura: <b>5h</b></span>
@@ -681,6 +682,7 @@ async function dbDelete(key){
 const CATALOG = [
   {id:'basica', name:'Limpeza Básica (moto)', price:50},
   {id:'buscaleva', name:'Buscamos e entregamos seu veículo (adicional)', price:10},
+  {id:'enceramento', name:'Enceramento (adicional)', price:10},
   {id:'artesanal_p', name:'Limpeza Artesanal — Pequena/Média', price:130},
   {id:'artesanal_m', name:'Limpeza Artesanal — Sujidade média/alta', price:190},
   {id:'artesanal_g', name:'Limpeza Artesanal — Grande/Premium', price:250},
