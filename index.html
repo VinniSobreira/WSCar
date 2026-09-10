@@ -216,6 +216,8 @@ footer{border-top:1px solid var(--line-soft); padding:32px 0;}
 .icon-socios svg{color:#a78bfa;}
 .icon-lembretes{background:linear-gradient(160deg, rgba(239,87,87,0.22), rgba(239,87,87,0.05)); border:1px solid rgba(239,87,87,0.3);}
 .icon-lembretes svg{color:#ef5757;}
+.icon-precos{background:linear-gradient(160deg, rgba(45,212,191,0.22), rgba(45,212,191,0.05)); border:1px solid rgba(45,212,191,0.3);}
+.icon-precos svg{color:#2dd4bf;}
 .cat-chip{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px;}
 .cat-chip svg{width:12px; height:12px;}
 
@@ -446,14 +448,14 @@ tr:last-child td{border-bottom:none;}
           <div class="service-card">
             <div class="service-name">Limpeza Básica</div>
             <div class="service-desc">Sua moto limpa, protegida e com acabamento impecável — ideal pra manter em dia.</div>
-            <div class="service-price">R$ 50<small>,00</small></div>
-            <div class="service-note">enceramento como adicional: +R$10,00</div>
+            <div class="service-price" id="lp-basica">R$ 50<small>,00</small></div>
+            <div class="service-note" id="lp-note-enceramento">enceramento como adicional: +R$10,00</div>
             <ul class="service-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Esfregação básica sobre a moto por completo</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Secagem — durabilidade de 1 a 2 meses</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Revitalização das partes superiores da moto</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Pretinho para acabamento impecável</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo <span id="lp-busca-1">(+R$10,00)</span></li>
             </ul>
             <button class="btn btn-ghost" onclick="goOrderWithPreset('basica')">Orçar limpeza básica</button>
           </div>
@@ -462,7 +464,7 @@ tr:last-child td{border-bottom:none;}
             <span class="service-badge">Mais pedido</span>
             <div class="service-name">Limpeza Artesanal Padrão</div>
             <div class="service-desc">Limpeza completa e detalhada, com produtos adequados e técnicas que protegem e valorizam cada detalhe.</div>
-            <div class="service-price"><span style="display:block; font-family:var(--body); font-size:13px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">A partir de</span>R$ 130<small>,00</small></div>
+            <div class="service-price" id="lp-artesanal"><span style="display:block; font-family:var(--body); font-size:13px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">A partir de</span>R$ 130<small>,00</small></div>
             <div class="service-note">variação conforme modelo e grau de sujidade</div>
             <div class="service-meta">
               <span class="meta-chip">Tempo + cura: <b>5h</b></span>
@@ -476,23 +478,21 @@ tr:last-child td{border-bottom:none;}
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Cera protetora na pintura</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Revitalização de plásticos com proteção UV</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Verniz antioxidante em motor, rodas e quadro</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo <span id="lp-busca-2">(+R$10,00)</span></li>
             </ul>
-            <button class="btn btn-primary" onclick="goOrderWithPreset('artesanal_p')">Orçar limpeza artesanal</button>
+            <button class="btn btn-primary" onclick="goOrderWithPreset('artesanal')">Orçar limpeza artesanal</button>
           </div>
 
           <div class="service-card">
             <div class="service-name">Limpeza de Carro</div>
             <div class="service-desc">Lavagem completa pro seu carro, com o mesmo cuidado que damos às motos.</div>
-            <div class="service-price">R$ 50<small>–70,00</small></div>
+            <div class="service-price" id="lp-carro"><span style="display:block; font-family:var(--body); font-size:13px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">A partir de</span>R$ 50<small>,00</small></div>
             <div class="service-note">valor conforme o porte do carro</div>
             <ul class="service-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Carro pequeno ou médio — R$ 50,00</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Carro grande — R$ 70,00</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Lavagem externa e limpeza interna básica</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo (+R$10,00)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Buscamos e entregamos seu veículo <span id="lp-busca-3">(+R$10,00)</span></li>
             </ul>
-            <button class="btn btn-ghost" onclick="goOrderWithPreset('carro_pm')">Orçar limpeza de carro</button>
+            <button class="btn btn-ghost" onclick="goOrderWithPreset('carro')">Orçar limpeza de carro</button>
           </div>
         </div>
       </div>
@@ -679,15 +679,22 @@ async function dbDelete(key){
 }
 
 /* ================= constantes ================= */
+const DEFAULT_PRICES = { basica:50, artesanal:130, carro:50, buscaleva:10, enceramento:10 };
+const PRICE_ITEMS = [
+  {id:'basica', label:'Limpeza Básica (moto)'},
+  {id:'artesanal', label:'Limpeza Artesanal (moto) — valor "a partir de"'},
+  {id:'carro', label:'Limpeza de Carro — valor "a partir de"'},
+  {id:'buscaleva', label:'Buscar e entregar o veículo (adicional)'},
+  {id:'enceramento', label:'Enceramento (adicional)'},
+];
+let PRICES = { ...DEFAULT_PRICES };
+
 const CATALOG = [
   {id:'basica', name:'Limpeza Básica (moto)', price:50},
   {id:'buscaleva', name:'Buscamos e entregamos seu veículo (adicional)', price:10},
   {id:'enceramento', name:'Enceramento (adicional)', price:10},
-  {id:'artesanal_p', name:'Limpeza Artesanal — Pequena/Média', price:130},
-  {id:'artesanal_m', name:'Limpeza Artesanal — Sujidade média/alta', price:190},
-  {id:'artesanal_g', name:'Limpeza Artesanal — Grande/Premium', price:250},
-  {id:'carro_pm', name:'Limpeza de Carro — Pequeno/Médio', price:50},
-  {id:'carro_g', name:'Limpeza de Carro — Grande', price:70},
+  {id:'artesanal', name:'Limpeza Artesanal (moto) — a partir de R$130', price:130},
+  {id:'carro', name:'Limpeza de Carro — a partir de R$50', price:50},
 ];
 const VEHICLE_TYPES = [{key:'moto', label:'Moto'}, {key:'carro', label:'Carro'}];
 const TEAM_CONTACTS = [
@@ -720,6 +727,7 @@ const ICONS = {
   relatorios:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
   socios:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M5 19L19 5"/></svg>',
   lembretes:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0112 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 20a2 2 0 004 0"/></svg>',
+  precos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5L12 21l-9-9V4h8l9.5 8.5z"/><circle cx="7.3" cy="7.3" r="1.3" fill="currentColor" stroke="none"/></svg>',
 };
 function monthKey(iso){ const d=new Date(iso); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
 function monthLabel(key){ const [y,m]=key.split('-'); const d=new Date(Number(y), Number(m)-1, 1); return d.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}); }
@@ -733,6 +741,37 @@ function sectionHead(key, title, desc){
 function emptyState(msg){ return `<div class="empty-state"><p>${msg}</p></div>`; }
 
 function fmtMoney(n){ return 'R$ ' + Number(n).toFixed(2).replace('.',','); }
+
+/* ================= preços editáveis (compartilhados entre orçamento e landing) ================= */
+function priceHTML(value){
+  const n = Number(value)||0;
+  const intPart = Math.floor(n);
+  const decPart = Math.round((n-intPart)*100).toString().padStart(2,'0');
+  return `R$ ${intPart}<small>,${decPart}</small>`;
+}
+function priceFromHTML(value){
+  return `<span style="display:block; font-family:var(--body); font-size:13px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">A partir de</span>${priceHTML(value)}`;
+}
+function fmtAddon(value){
+  const n = Number(value)||0;
+  return '(+'+fmtMoney(n)+')';
+}
+function applyPricesToCatalog(){
+  CATALOG.forEach(item=>{ if(PRICES[item.id]!=null) item.price = Number(PRICES[item.id]); });
+}
+function applyPricesToLanding(){
+  const b = document.getElementById('lp-basica'); if(b) b.innerHTML = priceHTML(PRICES.basica);
+  const a = document.getElementById('lp-artesanal'); if(a) a.innerHTML = priceFromHTML(PRICES.artesanal);
+  const c = document.getElementById('lp-carro'); if(c) c.innerHTML = priceFromHTML(PRICES.carro);
+  const note = document.getElementById('lp-note-enceramento'); if(note) note.textContent = 'enceramento como adicional: +'+fmtMoney(PRICES.enceramento);
+  ['lp-busca-1','lp-busca-2','lp-busca-3'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent = fmtAddon(PRICES.buscaleva); });
+}
+async function loadPrices(){
+  const stored = await dbGet('settings:prices');
+  if(stored) PRICES = { ...DEFAULT_PRICES, ...stored };
+  applyPricesToCatalog();
+  applyPricesToLanding();
+}
 function fmtDate(iso){ const d = new Date(iso); return d.toLocaleDateString('pt-BR') + ' ' + d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function onlyDigits(s){ return (s||'').replace(/\D/g,''); }
@@ -947,6 +986,7 @@ function renderAdminDashboard(){
       <button class="tab-btn ${state.adminTab==='financeiro'?'active':''}" onclick="setAdminTab('financeiro')">${icon('financeiro',15)} Financeiro</button>
       <button class="tab-btn ${state.adminTab==='clientes'?'active':''}" onclick="setAdminTab('clientes')">${icon('clientes',15)} Clientes</button>
       <button class="tab-btn ${state.adminTab==='estoque'?'active':''}" onclick="setAdminTab('estoque')">${icon('estoque',15)} Estoque</button>
+      <button class="tab-btn ${state.adminTab==='precos'?'active':''}" onclick="setAdminTab('precos')">${icon('precos',15)} Preços</button>
       <button class="tab-btn ${state.adminTab==='socios'?'active':''}" onclick="setAdminTab('socios')">${icon('socios',15)} Sócios</button>
       <button class="tab-btn ${state.adminTab==='lembretes'?'active':''}" onclick="setAdminTab('lembretes')">${icon('lembretes',15)} Lembretes</button>
       <button class="tab-btn ${state.adminTab==='relatorios'?'active':''}" onclick="setAdminTab('relatorios')">${icon('relatorios',15)} Relatórios</button>
@@ -962,6 +1002,7 @@ async function renderAdminBody(){
   if(state.adminTab==='financeiro') return renderFinanceiro(body);
   if(state.adminTab==='clientes') return renderClientes(body);
   if(state.adminTab==='estoque') return renderEstoque(body);
+  if(state.adminTab==='precos') return renderPrecos(body);
   if(state.adminTab==='socios') return renderSocios(body);
   if(state.adminTab==='lembretes') return renderLembretes(body);
   if(state.adminTab==='relatorios') return renderRelatorios(body);
@@ -1529,6 +1570,40 @@ function renderMonthlyReport(entries){
 function toggleMonth(k){ state.expandedMonth = state.expandedMonth===k ? null : k; renderAdminBody(); }
 function goEditFromReport(entryId){ state.financeEditId=entryId; state.adminTab='financeiro'; renderAdminDashboard(); }
 
+/* --- preços: edite aqui e o valor muda no orçamento do cliente e na página inicial --- */
+async function renderPrecos(body){
+  const stored = await dbGet('settings:prices');
+  const current = { ...DEFAULT_PRICES, ...(stored||{}) };
+  body.innerHTML = `
+    ${sectionHead('precos','Preços','Altere aqui — o valor atualiza sozinho no orçamento do cliente e nas páginas do site.')}
+    <div class="card">
+      ${PRICE_ITEMS.map(p=>`
+        <div class="field">
+          <label>${p.label}</label>
+          <input id="price_${p.id}" type="number" step="0.01" min="0" value="${current[p.id]}">
+        </div>
+      `).join('')}
+      <div class="err-msg" id="pricesErr"></div>
+      <button class="btn btn-primary" onclick="savePrices()">Salvar preços</button>
+    </div>
+  `;
+}
+async function savePrices(){
+  const errEl = document.getElementById('pricesErr');
+  errEl.classList.remove('show');
+  const updated = {};
+  for(const p of PRICE_ITEMS){
+    const val = parseFloat(document.getElementById('price_'+p.id).value);
+    if(isNaN(val) || val<0){ errEl.textContent='Preencha todos os preços com valores válidos.'; errEl.classList.add('show'); return; }
+    updated[p.id] = val;
+  }
+  await dbSet('settings:prices', updated);
+  PRICES = { ...DEFAULT_PRICES, ...updated };
+  applyPricesToCatalog();
+  applyPricesToLanding();
+  renderAdminBody();
+}
+
 /* --- sócios: divisão de lucro entre Thiago e Murillo --- */
 async function renderSocios(body){
   const settings = (await dbGet('settings:main')) || {reinvestPercent:20};
@@ -1675,6 +1750,7 @@ function renderTeamContacts(){
 }
 renderTeamContacts();
 renderNav();
+loadPrices();
 </script>
 </body>
 </html>
