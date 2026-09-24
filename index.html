@@ -786,12 +786,14 @@ function logout(){ state.role=null; state.session=null; state.view='client-auth'
 /* ---- client auth ---- */
 function renderClientAuth(){
   app.className='app-container narrow';
+  const tab = state.clientAuthTab || 'guest';
   app.innerHTML = `
     <h1 class="page-title">Área do cliente</h1>
-    <p class="page-sub">Entre com seu telefone ou cadastre-se para pedir um orçamento.</p>
+    <p class="page-sub">Monte seu orçamento rapidinho, sem cadastro — ou entre/cadastre-se pra acompanhar seu histórico.</p>
     <div class="tabs">
-      <button class="tab-btn ${state.clientAuthTab!=='register'?'active':''}" onclick="setClientAuthTab('login')">Entrar</button>
-      <button class="tab-btn ${state.clientAuthTab==='register'?'active':''}" onclick="setClientAuthTab('register')">Cadastrar</button>
+      <button class="tab-btn ${tab==='guest'?'active':''}" onclick="setClientAuthTab('guest')">Sem cadastro</button>
+      <button class="tab-btn ${tab==='login'?'active':''}" onclick="setClientAuthTab('login')">Entrar</button>
+      <button class="tab-btn ${tab==='register'?'active':''}" onclick="setClientAuthTab('register')">Cadastrar</button>
     </div>
     <div id="clientAuthBody"></div>
     <p style="margin-top:18px;"><button class="link-btn" onclick="showLanding()">← voltar ao site</button></p>
@@ -801,7 +803,8 @@ function renderClientAuth(){
 function setClientAuthTab(t){ state.clientAuthTab=t; renderClientAuth(); }
 function renderClientAuthBody(){
   const body = document.getElementById('clientAuthBody');
-  if(state.clientAuthTab==='register'){
+  const tab = state.clientAuthTab || 'guest';
+  if(tab==='register'){
     body.innerHTML = `
       <div class="card">
         <div class="field"><label>Nome completo</label><input id="rNome" placeholder="Seu nome"></div>
@@ -815,7 +818,7 @@ function renderClientAuthBody(){
         <button class="btn btn-primary btn-block" onclick="doRegister()">Criar cadastro</button>
       </div>
     `;
-  } else {
+  } else if(tab==='login'){
     body.innerHTML = `
       <div class="card">
         <div class="field"><label>Telefone (WhatsApp)</label><input id="lTel" placeholder="32999990000"></div>
@@ -824,7 +827,34 @@ function renderClientAuthBody(){
         <button class="btn btn-primary btn-block" onclick="doClientLogin()">Entrar</button>
       </div>
     `;
+  } else {
+    body.innerHTML = `
+      <div class="card">
+        <div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg> Sem senha, sem login — dá pra criar um cadastro depois se quiser acompanhar seus orçamentos.</div>
+        <div class="field"><label>Nome completo</label><input id="gNome" placeholder="Seu nome"></div>
+        <div class="field"><label>Telefone (WhatsApp)</label><input id="gTel" placeholder="32999990000"></div>
+        <div class="field-row">
+          <div class="field"><label>Tipo de veículo</label><select id="gTipo">${VEHICLE_TYPES.map(v=>`<option value="${v.key}">${v.label}</option>`).join('')}</select></div>
+          <div class="field"><label>Modelo</label><input id="gModelo" placeholder="Ex: Honda PCX"></div>
+        </div>
+        <div class="err-msg" id="gErr"></div>
+        <button class="btn btn-primary btn-block" onclick="doGuestContinue()">Continuar sem cadastro</button>
+      </div>
+    `;
   }
+}
+function doGuestContinue(){
+  const nome = document.getElementById('gNome').value.trim();
+  const tel = onlyDigits(document.getElementById('gTel').value);
+  const tipoVeiculo = document.getElementById('gTipo').value;
+  const modelo = document.getElementById('gModelo').value.trim();
+  const errEl = document.getElementById('gErr');
+  errEl.classList.remove('show');
+  if(!nome || !tel){ errEl.textContent='Preencha ao menos nome e telefone.'; errEl.classList.add('show'); return; }
+  state.role='client';
+  state.session = { phone:tel, nome, tipoVeiculo, modelo, guest:true };
+  state.view='client-dashboard'; state.clientTab='novo';
+  render();
 }
 async function doRegister(){
   const nome = document.getElementById('rNome').value.trim();
